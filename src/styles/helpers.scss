@@ -1,0 +1,38 @@
+// Texts manipulations
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-nowrap {
+  white-space: nowrap;
+}
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.text-uppercase {
+  text-transform: uppercase;
+}
+.text-lowercase {
+  text-transform: lowercase;
+}
+.text-capitalize {
+  text-transform: capitalize;
+}
+.text-underline {
+  text-decoration: underline;
+}
+.text-strong {
+  font-weight: 600;
+}
+
+
+// Nice with flexes
+.push-right {
+  margin-left: auto;
+}
+.push-left {
+  margin-right: auto;
+}

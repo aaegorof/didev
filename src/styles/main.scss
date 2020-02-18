@@ -1,0 +1,55 @@
+@import "vars";
+
+// Put the basic common styling
+@import "reset";
+@import "mixins";
+@import "grid";
+@import "fonts";
+@import "helpers";
+@import "basic";
+
+@include breakpoints($breakpoints, $columns);
+@include margins($breakpoints, $margins);
+@include colors($colors);
+
+
+$sm: nth(nth($breakpoints, 2), 2);
+html {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  @media screen and (max-width: $sm) {
+    overflow-x: hidden;
+    @import "mobile";
+  }
+}
+.main-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  & > .skeleton-wrap {
+    flex: 1;
+  }
+}
+.footer-wrap {
+  margin-top: auto;
+  padding: $min-margin 0;
+}
+
+
+#app {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+}
