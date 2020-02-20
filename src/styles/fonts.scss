@@ -15,7 +15,6 @@ $fontsPath: "./fonts/";
 @include font-face($font-family, "#{$fontsPath}montserrat", normal, 400);
 @include font-face($font-family, "#{$fontsPath}montserratbold", normal, 600);
 
-
 body {
   font-family: $font-family, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
     Helvetica, sans-serif;
@@ -23,16 +22,16 @@ body {
   -webkit-font-smoothing: antialiased;
   color: $text-color;
 }
-
 h1 {
   font-size: 64px;
   line-height: 1.2;
-  margin-top: 40px;
+  margin-top: 1.2em;
   margin-bottom: 20px;
   color: $black;
   font-weight: 400;
   text-decoration: none;
-  text-indent: -0.3rem;
+  margin-left: -0.3rem;
+  font-family: $font-family;
 }
 
 h2, .h2 {
