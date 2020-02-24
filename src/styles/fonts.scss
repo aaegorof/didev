@@ -19,6 +19,7 @@ body {
   font-family: $font-family, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
     Helvetica, sans-serif;
   font-size: $font-size;
+  line-height: 1.4;
   -webkit-font-smoothing: antialiased;
   color: $text-color;
 }
@@ -35,9 +36,9 @@ h1 {
 }
 
 h2, .h2 {
-  font-size: 20px;
-  font-weight: 800;
+  font-size: 24px;
+  font-weight: 600;
   line-height: 1.2;
   margin-bottom: 0;
-  margin-top: 2em;
+  margin-top: 0;
 }

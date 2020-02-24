@@ -71,3 +71,45 @@
   }
 }
 
+.about-wrap {
+  .logos {
+    div {
+      text-align: center;
+    }
+    svg {
+      max-width: 90%;
+    }
+  }
+}
+
+.directions-wrap {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(240px, 1fr));
+  grid-auto-rows: 240px;
+  gap: $min-margin;
+  .sector-item {
+    background: $primary;
+    padding: 1rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: $radius;
+    .number {
+      position: absolute;
+      top: 2rem;
+      left: 1rem;
+      width: 2rem;
+      &:after {
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: #fff;
+        margin-top: 1rem;
+        display: block;
+      }
+    }
+  }
+}
