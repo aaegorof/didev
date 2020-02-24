@@ -1,3 +1,6 @@
+$sm: nth(nth($breakpoints, 2),2);
+$md: nth(nth($breakpoints, 3),2);
+
 .home-wrap {
   .button {
     margin-left: -24px;
@@ -82,14 +85,16 @@
   }
 }
 
+
 .directions-wrap {
   display: grid;
   grid-template-columns: repeat(4, minmax(240px, 1fr));
   grid-auto-rows: 240px;
   gap: $min-margin;
   .sector-item {
+    $pd: 1rem;
     background: $primary;
-    padding: 1rem;
+    padding: $pd;
     color: #fff;
     display: flex;
     align-items: center;
@@ -99,17 +104,50 @@
     border-radius: $radius;
     .number {
       position: absolute;
-      top: 2rem;
-      left: 1rem;
-      width: 2rem;
+      top: $pd*2;
+      left: $pd;
+      width: $pd;
       &:after {
         content: '';
         width: 100%;
         height: 2px;
         background: #fff;
-        margin-top: 1rem;
+        margin-top: $pd;
         display: block;
       }
+    }
+  }
+  @media screen and (max-width: $sm){
+    $pd: 10px;
+    grid-template-columns: repeat(2, minmax(130px, 1fr));
+    grid-auto-rows: 130px;
+    .sector-item {
+      padding: $pd;
+      font-size: 12px;
+      .number {
+        top: $pd*2;
+        left: $pd;
+        width: $pd;
+        &:after {
+          margin-top: $pd;
+        }
+      }
+    }
+  }
+}
+
+
+.career-item {
+  padding-right: $min-margin;
+  .number {
+    margin-bottom: $min-margin;
+    font-weight: 600;
+  }
+  @media screen and (max-width: $md) {
+    font-size: 14px;
+    display: flex;
+    .number {
+      margin-right: $min-margin;
     }
   }
 }

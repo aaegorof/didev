@@ -89,3 +89,10 @@ ul {
     }
   }
 }
+
+.stripes, .low-nav-wrap {
+  left: 0;
+  @media screen and (max-width: $container) {
+    padding: 0 $min-margin;
+  }
+}

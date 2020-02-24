@@ -42,3 +42,10 @@ h2, .h2 {
   margin-bottom: 0;
   margin-top: 0;
 }
+
+$md: nth(nth($breakpoints, 3),2);
+@media screen and (max-width: $md) {
+  h1 {
+    font-size: 32px;
+  }
+}
