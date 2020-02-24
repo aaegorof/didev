@@ -33,6 +33,14 @@ module.exports = {
         icon: `src/images/logo.svg`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: `${__dirname}/src/images` // See below to configure properly
+        }
+      }
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

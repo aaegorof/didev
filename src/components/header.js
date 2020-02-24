@@ -8,7 +8,7 @@ const Header = ({onChange, active}) => (
   <header>
     <div className={"row"}>
         <Link to="/">
-          <img src={Logo} />
+          <Logo/>
         </Link>
       <nav>
         <ul className={"row align-center"}>

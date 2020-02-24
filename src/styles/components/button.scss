@@ -1,0 +1,27 @@
+.button {
+  padding: 12px 24px;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  line-height: 1;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  outline: none;
+  font-size: 18px;
+  transition: 0.1s all $bezier;
+  border-radius: $radius;
+  text-transform: uppercase;
+  height: $input-height;
+  color: $primary;
+  &:hover {
+    background: $primary;
+    color: #fff;
+  }
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

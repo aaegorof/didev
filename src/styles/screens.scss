@@ -1,0 +1,73 @@
+.home-wrap {
+  .button {
+    margin-left: -24px;
+    transition-duration: 0.35s;
+    &:hover {
+      margin-left: 0;
+    }
+  }
+}
+
+.animated-logo {
+  display: flex;
+  justify-content: center;
+}
+
+.animation-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 5vh;
+  .dlow {
+    margin-bottom: 0;
+    position: relative;
+    z-index: 2;
+    transition: all 1s $bezier;
+    transition-delay: 0.2s;
+  }
+  .dtop {
+    margin-left: -100px;
+    position: relative;
+    z-index: 2;
+    transition: all 1s $bezier;
+    transition-delay: 0.2s;
+  }
+
+  .glass {
+    $size: 180px;
+    position: absolute;
+    width: $size;
+    height: $size;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0px 60px 60px rgba(0, 0, 0, 0.04);
+    backdrop-filter: blur(18px);
+    /* Note: backdrop-filter has minimal browser support */
+    transition: transform 1s $bezier;
+    transition-delay: 0.4s;
+    border-radius: 30px;
+    transform: matrix(-1.68, 0.75, 1.68, 0.75, 0, -200);
+    z-index: 5;
+    &.low {
+      bottom: 0;
+      transform: matrix(-1.68, 0.75, 1.68, 0.75, 0, 200);
+      z-index: 1;
+    }
+  }
+
+  &.active {
+    .glass {
+      transform: matrix(-1.68, 0.75, 1.68, 0.75, 0, -120);
+      &.low {
+        transform: matrix(-1.68, 0.75, 1.68, 0.75, 0, 120);
+      }
+    }
+    .dlow {
+      margin-bottom: -50px;
+    }
+    .dtop {
+      margin-left: -200px;
+    }
+  }
+}
+
