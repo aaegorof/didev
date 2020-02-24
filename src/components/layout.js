@@ -5,7 +5,7 @@ import {menuLinks} from "../pages"
 import Header from "./header"
 import Arrow from "../images/arrow.svg"
 
-const Layout = ({ children, classname, active, onChange, title }) => {
+const Layout = ({ children, classvar, active, onChange, title }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -17,9 +17,9 @@ const Layout = ({ children, classname, active, onChange, title }) => {
   `)
 
   return (
-    <div className={"container app"}>
+    <div className={`container app ${classvar}`}>
       <Header siteTitle={data.site.siteMetadata.title} onChange={onChange} active={active}/>
-      <main className={classname}>
+      <main>
         <div className="row">
           <div className={`col-md-${menuLinks[active].offset}`}></div>
           <h1>{title}</h1>

@@ -6,14 +6,14 @@ $gap: 0px;
 //Colors watch the variables in "styledTheme.js"
 $black: #010101;
 $text-color: rgba(#010101, 0.8);
-$primary: #090AFF;
-$primaryBlack: #191E4F;
-$secondary: #0989FF;
+$primary: #090aff;
+$primaryBlack: #191e4f;
+$secondary: #0989ff;
 $success: green;
 $danger: red;
 $error: $danger;
 
-$grey-border: #F1F3F6;
+$grey-border: #f1f3f6;
 $grey-light: #f7f7f7;
 $grey-light-hover: #e1e1e1;
 
@@ -27,18 +27,19 @@ $breakpoints: (
   sm: 425px,
   md: 768px,
   lg: 1040px,
-  xl: 1440px
+  xl: 1440px,
 );
 
 $colors: (
-  white: #E5E5E5,
+  white: #e5e5e5,
   text: $text-color,
   primary: $primary,
+  primaryDark: $primaryBlack,
   secondary: $secondary,
   green: $success,
   red: $error,
   greyb: $grey-border,
-  greyl: $grey-light
+  greyl: $grey-light,
 );
 
 /// Margins
@@ -48,7 +49,7 @@ $margins: (
   sm: 30px,
   md: 40px,
   lg: 60px,
-  xl: 100px
+  xl: 100px,
 );
 
 $input-height: 50px;

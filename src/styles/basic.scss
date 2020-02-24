@@ -96,3 +96,9 @@ ul {
     padding: 0 $min-margin;
   }
 }
+
+.inverted{
+  & > header, & > .low-nav-wrap, & > .stripes, h1 {
+    filter: grayscale(1) invert(1);
+  }
+}

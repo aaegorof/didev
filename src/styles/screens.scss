@@ -151,3 +151,14 @@ $md: nth(nth($breakpoints, 3),2);
     }
   }
 }
+
+.contacts-wrap {
+  color: #fff;
+  address {
+    font-style: normal;
+  }
+  a, button {
+    color: $secondary;
+    text-decoration: none;
+  }
+}
