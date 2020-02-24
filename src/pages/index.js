@@ -25,9 +25,13 @@ export const menuLinks = [
   { name: "Направления", component: <Directions />, offset: 2 },
   { name: "Решения", component: <Solutions />, offset: 0 },
   { name: "Карьера", component: <Career />, offset: 3 },
-  { name: "Контакты", component: <Contacts />, offset: 0, bodyClass: "bg-primaryDark" },
+  {
+    name: "Контакты",
+    component: <Contacts />,
+    offset: 0,
+    bodyClass: "bg-primaryDark",
+  },
 ]
-
 
 const IndexPage = () => {
   const [activeSlideId, setActiveSlideId] = useState(0)
@@ -35,15 +39,15 @@ const IndexPage = () => {
   const bodyClass = menuLinks[activeSlideId].bodyClass
 
   useEffect(() => {
-      bodyClass ? document.body.classList.add(bodyClass) : document.body.classList = []
-  }, [activeSlideId])
+    bodyClass
+      ? document.body.classList.add(bodyClass)
+      : (document.body.classList = [])
+  }, [activeSlideId, bodyClass])
 
   return (
-    <>
-      <SEO title="Home" />
       <Layout
         active={activeSlideId}
-        onChange={_setActiveSlideId}
+        onChnge={slideId => _setActiveSlideId(slideId)}
         classvar={activeSlideId === 5 ? "inverted" : ""}
         title={
           activeSlideId === 0
@@ -51,9 +55,9 @@ const IndexPage = () => {
             : menuLinks[activeSlideId].name
         }
       >
+        <SEO title={menuLinks[activeSlideId].name} />
         {menuLinks[activeSlideId].component}
       </Layout>
-    </>
   )
 }
 

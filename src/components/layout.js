@@ -1,11 +1,14 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import {menuLinks} from "../pages"
+import { menuLinks } from "../pages"
 import Header from "./header"
 import Arrow from "../images/arrow.svg"
+import PropTypes from "prop-types"
 
-const Layout = ({ children, classvar, active, onChange, title }) => {
+const Layout = props => {
+
+  const { children, classvar, active = 0, onChnge, title } = props
+
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -18,7 +21,11 @@ const Layout = ({ children, classvar, active, onChange, title }) => {
 
   return (
     <div className={`container app ${classvar}`}>
-      <Header siteTitle={data.site.siteMetadata.title} onChange={onChange} active={active}/>
+      <Header
+        siteTitle={data.site.siteMetadata.title}
+        onChnge={onChnge}
+        active={active}
+      />
       <main>
         <div className="row">
           <div className={`col-md-${menuLinks[active].offset}`}></div>
@@ -28,10 +35,16 @@ const Layout = ({ children, classvar, active, onChange, title }) => {
       </main>
       <nav className={"row low-nav-wrap"}>
         <div className="nav-arrow col-sm-1 push-right">
-          <div className="arrow-down" onClick={onChange(active === menuLinks.length-1 ? 0 : active + 1)}>
+          <div
+            className="arrow-down"
+            onClick={onChnge(active === menuLinks.length - 1 ? 0 : active + 1)}
+          >
             <Arrow />
           </div>
-          <div className="arrow-up" onClick={onChange(active < 1 ? menuLinks.length - 1 : active - 1)}>
+          <div
+            className="arrow-up"
+            onClick={onChnge(active < 1 ? menuLinks.length - 1 : active - 1)}
+          >
             <Arrow />
           </div>
         </div>
@@ -47,9 +60,14 @@ const Layout = ({ children, classvar, active, onChange, title }) => {
     </div>
   )
 }
-
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  siteTitle: PropTypes.string,
+  onChnge: PropTypes.func
+}
+
+Layout.defaultProps = {
+  siteTitle: ``,
+  onChnge: () => 1
 }
 
 export default Layout
