@@ -26,11 +26,11 @@ const Layout = props => {
         onChnge={onChnge}
         active={active}
       />
+      <div className="row">
+        <div className={`col-md-${menuLinks[active].offset}`}></div>
+        <h1>{title}</h1>
+      </div>
       <main>
-        <div className="row">
-          <div className={`col-md-${menuLinks[active].offset}`}></div>
-          <h1>{title}</h1>
-        </div>
         {children}
       </main>
       <nav className={"row low-nav-wrap"}>
