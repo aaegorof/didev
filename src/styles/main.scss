@@ -16,8 +16,9 @@
 @include margins($breakpoints, $margins);
 @include colors($colors);
 
-
 $sm: nth(nth($breakpoints, 2), 2);
+$md: nth(nth($breakpoints, 3), 2);
+
 html {
   display: flex;
   flex-direction: column;
@@ -44,6 +45,9 @@ body {
     flex: 1;
   }
 }
+header {
+  position: relative;
+}
 .footer-wrap {
   margin-top: auto;
   padding: $min-margin 0;
@@ -56,4 +60,43 @@ body {
   width: 100%;
   height: 100%;
   flex: 1;
+}
+.hamburger {
+  position: absolute;
+  right: 0;
+  display: none;
+  z-index: 12;
+}
+
+
+@media screen and (max-width: $md){
+  .main-menu {
+    display: none;
+    opacity: 0;
+    height: 100vh;
+    background: #fff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 12;
+    ul {
+      display: flex;
+      flex-direction:column;
+      margin-top: 22vh;
+      li {
+        margin-bottom: 5vh;
+        a {
+          font-size: 3vh;
+        }
+      }
+    }
+    &.opened {
+      display: block;
+      opacity: 1;
+    }
+  }
+  .hamburger {
+    display: block;
+  }
 }

@@ -37,6 +37,7 @@ ul {
   font-size: 14px;
   &.active {
     font-weight: 600;
+    color: $primary;
     text-decoration: line-through;
   }
 }
@@ -75,6 +76,9 @@ ul {
         stroke: $primary;
       }
     }
+  }
+  @media screen and (max-width: $md){
+    justify-content: flex-end;
   }
 }
 .stripes {

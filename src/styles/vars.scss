@@ -57,3 +57,7 @@ $radius: 5px;
 $shadow: 4px 8px 14px rgba(17, 17, 17, 0.16);
 
 $bezier: cubic-bezier(0.25, 0.8, 0.25, 1);
+
+$sm: nth(nth($breakpoints, 2),2);
+$md: nth(nth($breakpoints, 3),2);
+$media-sm: '@media screen and (max-width: #{sm})';

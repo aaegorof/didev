@@ -22,9 +22,9 @@ export const config = {
 export const menuLinks = [
   { name: "Главная", component: <Home />, offset: 3 },
   { name: "О компании", component: <About />, offset: 1 },
-  { name: "Направления", component: <Directions />, offset: 2 },
-  { name: "Решения", component: <Solutions />, offset: 0 },
-  { name: "Карьера", component: <Career />, offset: 3 },
+  { name: "Направления", component: <Directions />, offset: 1 },
+  { name: "Решения", component: <Solutions />, offset: 1 },
+  { name: "Карьера", component: <Career />, offset: 1 },
   {
     name: "Контакты",
     component: <Contacts />,

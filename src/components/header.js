@@ -1,16 +1,18 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React from "react"
+import React, {useState} from "react"
 import Logo from "../images/logo.svg"
 import { menuLinks } from "../pages"
+import Hamburger from "../images/mobile_menu.svg"
 
-const Header = ({ onChnge, active }) => (
-  <header>
+const Header = ({ onChnge, active }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  return <header>
     <div className={"row"}>
-      <Link to="/">
+      <Link to="/" onClick={onChnge(0)}>
         <Logo />
       </Link>
-      <nav>
+      <nav className={`main-menu ${isMenuOpen ? "opened" :""}`}>
         <ul className={"row align-center"}>
           {menuLinks.map((a, i) => (
             <li key={a.name}>
@@ -25,9 +27,11 @@ const Header = ({ onChnge, active }) => (
           ))}
         </ul>
       </nav>
+      <Hamburger className="hamburger" onClick={() => setIsMenuOpen(!isMenuOpen)}/>
     </div>
   </header>
-)
+}
+
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
