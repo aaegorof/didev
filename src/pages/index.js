@@ -24,12 +24,11 @@ export const menuLinks = [
   { name: "О компании", component: <About />, offset: 1 },
   { name: "Направления", component: <Directions />, offset: 1 },
   { name: "Решения", component: <Solutions />, offset: 1 },
-  { name: "Карьера", component: <Career />, offset: 1 },
+  { name: "Карьера", component: <Career />, offset: 1, container: false },
   {
     name: "Контакты",
     component: <Contacts />,
     offset: 0,
-    bodyClass: "bg-primaryDark",
   },
 ]
 
@@ -48,7 +47,7 @@ const IndexPage = () => {
       <Layout
         active={activeSlideId}
         onChnge={slideId => _setActiveSlideId(slideId)}
-        classvar={activeSlideId === 5 ? "inverted" : ""}
+        container={menuLinks[activeSlideId].container}
         title={
           activeSlideId === 0
             ? config.mainTitle()

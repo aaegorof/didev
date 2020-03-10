@@ -7,7 +7,7 @@ import PropTypes from "prop-types"
 
 const Layout = props => {
 
-  const { children, classvar, active = 0, onChnge, title } = props
+  const { children, classvar, active = 0, onChnge, title, container = true } = props
 
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -20,20 +20,22 @@ const Layout = props => {
   `)
 
   return (
-    <div className={`container app ${classvar}`}>
+    <div className={`${container ? "container": ""} app ${classvar}`}>
       <Header
         siteTitle={data.site.siteMetadata.title}
         onChnge={onChnge}
         active={active}
       />
-      <div className="row">
-        <div className={`col-md-${menuLinks[active].offset}`}></div>
-        <h1>{title}</h1>
+      <div className="container">
+        <div className="row">
+          <div className={`col-md-${menuLinks[active].offset}`}></div>
+          <h1>{title}</h1>
+        </div>
       </div>
       <main>
         {children}
       </main>
-      <nav className={"row low-nav-wrap"}>
+      <nav className={"container row low-nav-wrap"}>
         <div className="nav-arrow col-sm-1 push-right">
           <div
             className="arrow-down"
@@ -49,14 +51,14 @@ const Layout = props => {
           </div>
         </div>
       </nav>
-      <div className="stripes row">
+      { container && <div className="stripes row">
         <div className="stripe"></div>
         <div className="stripe"></div>
         <div className="stripe"></div>
         <div className="stripe"></div>
         <div className="stripe"></div>
         <div className="stripe"></div>
-      </div>
+      </div>}
     </div>
   )
 }

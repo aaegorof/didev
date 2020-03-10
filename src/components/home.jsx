@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import Button from "./Button"
-import Dlow from "../images/dlow .svg"
+import Dlow from "../images/dlow.svg"
 import Dtop from "../images/dtop.svg"
 
 const Home = () => {

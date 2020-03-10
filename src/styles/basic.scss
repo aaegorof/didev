@@ -95,6 +95,23 @@ ul {
   }
 }
 
+.horizontal-stripes {
+  border-top: 1px solid rgba($black, .05);
+  border-bottom: 1px solid rgba($black, .05);
+}
+.vertical-stripes {
+  &:before, &:after {
+    content: '';
+    position: fixed;
+    width: 1px;
+    background: rgba($black, .05);
+    height: 100vh;
+    top: 0;
+  }
+  &:after {
+    right: calc((100vw - #{$container})/2);
+  }
+}
 .stripes, .low-nav-wrap {
   left: 0;
   @media screen and (max-width: $container) {

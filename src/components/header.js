@@ -7,7 +7,7 @@ import Hamburger from "../images/mobile_menu.svg"
 
 const Header = ({ onChnge, active }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  return <header>
+  return <header className="container">
     <div className={"row"}>
       <Link to="/" onClick={onChnge(0)}>
         <Logo />

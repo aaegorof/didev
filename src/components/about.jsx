@@ -16,14 +16,6 @@ const About = () => {
           России», что свидетельствует о признании профессионализма и наличия
           доверия от двух самых крупных компаний России финансового сектора.
         </div>
-        <div className="row mg-4-t logos">
-          <div className="col-md-3">
-            <Sber />
-          </div>
-          <div className="col-md-3">
-            <Rossiya />
-          </div>
-        </div>
       </div>
     </div>
   )

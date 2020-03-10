@@ -138,12 +138,78 @@
   }
 }
 
-
+.career-wrap {
+  overflow: scroll;
+  display: flex;
+  cursor: all-scroll;
+  &.horizontal-scroll {
+    $height: 60vh;
+    $gap: $min-margin;
+    $item: 2;
+    $item-width: calc(#{$container} / #{$item} - #{$gap});
+    display: block;
+    overflow: scroll;
+    width: $height;
+    height: $container;
+    transform: rotate(-90deg) translateY(-$height);
+    transform-origin: top right;
+    padding-top: $item-width;
+    margin-left: calc((100vw - #{$container})/2 );
+    @media screen and (max-height: 800px){
+      width: $height + 15vh;
+      transform: rotate(-90deg) translateY(-($height+ 15vh));
+    }
+    .career-item {
+      margin-bottom: $gap;
+      display: flex;
+      flex-direction: column;
+      transform: rotate(90deg) translateY(0vh);
+      transform-origin: top right;
+      width: $item-width;
+      height: $item-width;
+      overflow: hidden;
+      .gatsby-image-wrapper {
+        max-height: 270px;
+        margin-top: $min-margin;
+      }
+      &:nth-child(2n) {
+        .title {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+  &::-webkit-scrollbar {
+    height: 4px;
+    background: rgba($primary, 0.2);
+    &:vertical {
+      display: none;
+    }
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $primary;
+  }
+}
 .career-item {
-  padding-right: $min-margin;
+  margin-right: $min-margin;
+  display: flex;
+  flex-direction: column;
   .number {
-    margin-bottom: $min-margin;
+    margin-top: 0.6em;
+    margin-bottom: 0.4em;
     font-weight: 600;
+    font-size: 3rem;
+    color: $primary;
+    line-height: 1;
+  }
+  &:nth-child(2n) {
+    .gatsby-image-wrapper {
+      order:3;
+      margin-top: auto;
+    }
+    .title {
+      margin-bottom: 3rem;
+    }
   }
   @media screen and (max-width: $md) {
     font-size: 14px;
@@ -154,14 +220,21 @@
   }
 }
 
+
 .contacts-wrap {
-  color: #fff;
+  .rekviziti {
+    font-size: 14px;
+  }
   address {
+    font-size: 14px;
     font-style: normal;
+    margin-bottom: 1em;
   }
   a, button {
-    color: $secondary;
     text-decoration: none;
+  }
+  .form-contact {
+    align-self: center;
   }
 }
 
@@ -229,6 +302,8 @@
         width: $size;
         height: $size;
         border-radius: 50%;
+        border-color: $primary;
+        border-style: solid;
         transform: translateX(50%) translateY(-50%);
         background: $primary;
         transition: all 0.3s $bezier;
@@ -289,12 +364,13 @@
     width: $size;
     height: $size;
     background: $primary;
+    border-width: 0;
   }
   100% {
     $size: 24px;
     width: $size;
     height: $size;
-    border: $size/4 solid $primary;
+    border-width: $size/4;
     background: #fff;
     z-index: 2;
     box-shadow: $shadow;
