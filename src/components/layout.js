@@ -20,7 +20,7 @@ const Layout = props => {
   `)
 
   return (
-    <div className={`${container ? "container": ""} app ${classvar}`}>
+    <div className={`${container ? "container": "container-fluid"} app ${classvar}`}>
       <Header
         siteTitle={data.site.siteMetadata.title}
         onChnge={onChnge}

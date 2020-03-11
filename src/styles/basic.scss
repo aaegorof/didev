@@ -14,6 +14,28 @@
       position: relative;
       flex: 2;
     }
+    &.container-fluid {
+      header {
+        max-width: $container;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .low-nav-wrap{
+        right: 0;
+        max-width: $container;
+        margin: auto;
+      }
+      @media screen and (max-width: $md){
+        .hamburger {
+          right: $min-margin;
+        }
+        h1 {
+          padding-left: $min-margin;
+          padding-right: $min-margin;
+        }
+      }
+    }
   }
   header {
     margin-top: 3vh;
