@@ -30,7 +30,7 @@ const Contacts = () => {
       data: new FormData(form)
     })
       .then(r => {
-        handleServerResponse(true, "Спасибо за обращение.", form);
+        handleServerResponse(true, "Спасибо за обращение. Мы с Вами свяжемся в ближайшее время.", form);
       })
       .catch(r => {
         handleServerResponse(false, r.response.data.error, form);
@@ -55,7 +55,7 @@ const Contacts = () => {
         </div>
 
         <p>
-          <a href="mailto:contact@domain.zone">contact@domain.zone</a>
+          <a href="mailto:info@didev.ru">info@didev.ru</a>
         </p>
         <p>
           <a href="tel:+7(499)702-57-17">+7 (499) 702-57-17</a>

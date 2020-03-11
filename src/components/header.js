@@ -7,9 +7,14 @@ import Hamburger from "../images/mobile_menu.svg"
 
 const Header = ({ onChnge, active }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  return <header className="container">
+  const _onChange = v => () => {
+    setIsMenuOpen(false)
+    onChnge(v)()
+  }
+
+  return <header>
     <div className={"row"}>
-      <Link to="/" onClick={onChnge(0)}>
+      <Link to="/" onClick={_onChange(0)}>
         <Logo />
       </Link>
       <nav className={`main-menu ${isMenuOpen ? "opened" :""}`}>
@@ -18,8 +23,8 @@ const Header = ({ onChnge, active }) => {
             <li key={a.name}>
               <a
                 href="#"
-                className={`menu-link ${i == active ? "active" : ""}`}
-                onClick={onChnge(i)}
+                className={`menu-link ${i === active ? "active" : ""}`}
+                onClick={_onChange(i)}
               >
                 {a.name}
               </a>

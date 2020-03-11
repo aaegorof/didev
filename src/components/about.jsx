@@ -1,6 +1,4 @@
 import React from "react"
-import Sber from "../images/sberbank_logo.svg"
-import Rossiya from "../images/bank_rf_logo.svg"
 
 const About = () => {
   return (

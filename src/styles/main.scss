@@ -65,6 +65,7 @@ header {
 }
 .hamburger {
   position: absolute;
+  top: $min-margin;
   right: 0;
   display: none;
   z-index: 12;

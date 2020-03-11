@@ -218,16 +218,27 @@
       margin-right: $min-margin;
     }
   }
+  @media screen and (max-width: $sm){
+    max-width: 100%;
+    height: 65vh;
+    .gatsby-image-wrapper {
+      max-width: 100%;
+      max-height: 240px;
+      img {
+        max-width: 100%;
+      }
+    }
+  }
 }
 
 
 .contacts-wrap {
   .rekviziti {
-    font-size: 14px;
+    line-height: 1.6;
   }
   address {
-    font-size: 14px;
     font-style: normal;
+    line-height: 1.6;
     margin-bottom: 1em;
   }
   a, button {
