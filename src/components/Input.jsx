@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react"
 
-const Input = ({ value = "", disabled = false, text, onChange, placeholder, icon, type, validator, className, ...props }) => {
+const Input = ({ value = "", disabled = false, text, onChange, placeholder, icon, type, name = placeholder, validator, className, ...props }) => {
   const innerRef = useRef()
   const [initPlaceholder, setInitPlaceholder] = useState(placeholder)
 
@@ -22,6 +22,7 @@ const Input = ({ value = "", disabled = false, text, onChange, placeholder, icon
     <div className={`input-wrap ${className}`} {...props}>
       {text && <div className="input-text">{text}</div>}
         <input
+          name={name}
           value={value}
           disabled={disabled}
           onChange={_onChange}

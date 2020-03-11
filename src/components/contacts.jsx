@@ -1,12 +1,41 @@
 import React, {useState} from "react"
 import Input from "./Input"
 import Button from "./Button"
+import axios from "axios"
 
 const Contacts = () => {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [text, setText] = useState("")
-
+  const [serverState, setServerState] = useState({
+    submitting: false,
+    status: null
+  });
+  const handleServerResponse = (ok, msg, form) => {
+    setServerState({
+      submitting: false,
+      status: { ok, msg }
+    });
+    if (ok) {
+      form.reset();
+    }
+  };
+  const handleOnSubmit = e => {
+    e.preventDefault();
+    const form = e.target;
+    setServerState({ submitting: true });
+    axios({
+      method: "post",
+      url: "https://getform.io/f/ed3e9998-9ca4-4625-b6a1-a93138277fe7",
+      data: new FormData(form)
+    })
+      .then(r => {
+        handleServerResponse(true, "Спасибо за обращение.", form);
+      })
+      .catch(r => {
+        handleServerResponse(false, r.response.data.error, form);
+      });
+  };
   const onSetName = v => setName(v)
   const onSetEmail = v => setEmail(v)
   const onSetText = v => setText(v)
@@ -33,13 +62,21 @@ const Contacts = () => {
         </p>
       </div>
       <div className="col-lg-1"></div>
-      <form className="col-lg-2 bg-white form-contact">
+
+      <div className="col-lg-2 bg-white">
         <h2>Связаться с нами</h2>
-        <Input placeholder="Имя" value={name} onChange={onSetName} className="mg-1-t"/>
-        <Input placeholder="Email" value={email} onChange={onSetEmail}/>
-        <Input placeholder="Текст сообщения" value={text} onChange={onSetText}/>
-            <Button className="mg-2-t" style={{float: "right"}}>Отправить >_</Button>
+        <form onSubmit={handleOnSubmit} className="form-contact">
+        <Input placeholder="Имя" value={name} name="name" onChange={onSetName} className="mg-1-t"/>
+        <Input placeholder="Email" type="email" value={email} name="email" onChange={onSetEmail}/>
+        <Input placeholder="Текст сообщения" value={text} name="text" onChange={onSetText}/>
+        <Button className="mg-2-t" style={{float: "right"}} type="submit" disabled={serverState.submitting}>Отправить >_</Button>
+        {serverState.status && (
+          <div className={`msg-form ${!serverState.status.ok ? "errorMsg" : ""}`}>
+            {serverState.status.msg}
+          </div>
+        )}
       </form>
+      </div>
     </div>
   )
 }
